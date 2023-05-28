@@ -64,7 +64,7 @@ function getJSSpell() {
 		// esto ya esta todo EZ, pones la localizacion a donde quere que se mueva en este caso a donde apunto al disparar.
 		// despues la cantidad de bloques que se mueve por segundo, pueden ser 10000 o 0.02 xD pone lo q te parezca la velocidad
 		// por ultimo el alcance maximo antes que despawnee, en este caso lo que dice la DB.
-		dot.MoveTo(event.getEndCastLocation(), 20, event.getFinalStats().getAlcance());
+		dot.MoveTo(event.getEndCastLocation(), 20);
 		return true;
 	});
 	

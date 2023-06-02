@@ -2871,6 +2871,17 @@ interface PlayerEventStatic {
 export const PlayerEvent: PlayerEventStatic = Packages.org.bukkit.event.player.PlayerEvent;
 
 
+interface PlayerHitEntityEventStatic {
+
+	readonly class:any;
+	new( castEvent:net.juligame.epicspells.classes.spell.events.CastEvent, target:org.bukkit.entity.LivingEntity, finalStats:net.juligame.epicspells.classes.spell.SpellStats ):net.juligame.epicspells.classes.effects.event.PlayerHitEntityEvent;
+	new( castEvent:net.juligame.epicspells.classes.spell.events.CastEvent, target:org.bukkit.entity.LivingEntity, newDamage:double ):net.juligame.epicspells.classes.effects.event.PlayerHitEntityEvent;
+	new( castEvent:net.juligame.epicspells.classes.spell.events.CastEvent, target:org.bukkit.entity.LivingEntity ):net.juligame.epicspells.classes.effects.event.PlayerHitEntityEvent;
+}
+
+export const PlayerHitEntityEvent: PlayerHitEntityEventStatic = Packages.net.juligame.epicspells.classes.effects.event.PlayerHitEntityEvent;
+
+
 interface PlayerInventoryStatic {
 
 	readonly class:any;
@@ -4374,8 +4385,8 @@ export const SpellLogic: SpellLogicStatic = Packages.net.juligame.epicspells.cla
 interface SpellStatsStatic {
 
 	readonly class:any;
-	new( element:net.juligame.epicspells.classes.enums.Element, damage:double, cooldown:int, alcance:int, area:double, duration:int ):net.juligame.epicspells.classes.spell.SpellStats;
 	new(  ):net.juligame.epicspells.classes.spell.SpellStats;
+	new( element:net.juligame.epicspells.classes.enums.Element, damage:double, cooldown:int, alcance:int, area:double, duration:int ):net.juligame.epicspells.classes.spell.SpellStats;
 }
 
 export const SpellStats: SpellStatsStatic = Packages.net.juligame.epicspells.classes.spell.SpellStats;

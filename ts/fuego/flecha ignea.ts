@@ -1,7 +1,7 @@
 import {
 	Dot,
 	Hitbox,
-	Particle,
+	Particle, PlayerHitEntityEvent,
 	Sound,
 	SpellLogic
 } from "../j2ts/jdk8-types";
@@ -42,7 +42,7 @@ function getJSSpell() {
 			
 			// le hacemos da�o a la entidad, segun lo que diga la base de datos.
 			// el segundo parametro es para que spigot sepa que el da�o no es de la nada, sino que el credito (el que le pego) es el caster
-			entity.damage(event.getFinalStats().getDamage(), event.getCaster());
+			new PlayerHitEntityEvent(event, entity)
 			
 			// este return si que sirve, si esta en true, el proyectil se destruye, si esta en false sigue atravesando.
 			return true;

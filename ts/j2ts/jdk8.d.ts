@@ -650,6 +650,16 @@ class Pentagrama/* extends java.lang.Object*/ {
 } // end Pentagrama
 
 } // end namespace net.juligame.epicspells.classes.effects
+declare namespace net.juligame.epicspells.classes.effects.event {
+
+class PlayerHitEntityEvent/* extends java.lang.Object*/ {
+
+	equals( arg0:any /*java.lang.Object*/ ):boolean;
+	toString(  ):string;
+
+} // end PlayerHitEntityEvent
+
+} // end namespace net.juligame.epicspells.classes.effects.event
 declare namespace net.juligame.epicspells.classes.effects.interfaces {
 
 class movable/* extends java.lang.Object*/ {
@@ -748,6 +758,7 @@ declare namespace net.juligame.epicspells.classes.spell {
 class SpellStats/* extends java.lang.Object*/ {
 
 	add( other:SpellStats ):SpellStats;
+	clone(  ):SpellStats;
 	equals( arg0:any /*java.lang.Object*/ ):boolean;
 	getAlcance(  ):int;
 	getArea(  ):double;
@@ -6074,6 +6085,7 @@ interface Player/* extends HumanEntity, org.bukkit.conversations.Conversable, or
 	openMerchant( arg0:any /*org.bukkit.entity.Villager*/, arg1:boolean ):any /*org.bukkit.inventory.InventoryView*/;
 	openMerchant( arg0:any /*org.bukkit.inventory.Merchant*/, arg1:boolean ):any /*org.bukkit.inventory.InventoryView*/;
 	openSign( arg0:any /*org.bukkit.block.Sign*/ ):void;
+	openSign( arg0:any /*org.bukkit.block.Sign*/, arg1:any /*org.bukkit.block.sign.Side*/ ):void;
 	openSmithingTable( arg0:org.bukkit.Location, arg1:boolean ):any /*org.bukkit.inventory.InventoryView*/;
 	openStonecutter( arg0:org.bukkit.Location, arg1:boolean ):any /*org.bukkit.inventory.InventoryView*/;
 	openWorkbench( arg0:org.bukkit.Location, arg1:boolean ):any /*org.bukkit.inventory.InventoryView*/;

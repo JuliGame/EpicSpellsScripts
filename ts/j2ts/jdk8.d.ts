@@ -577,19 +577,16 @@ class EpicPlayer/* extends net.juligame.Jsql.JSql*/ {
 } // end namespace net.juligame.epicspells.classes
 declare namespace net.juligame.epicspells.classes.effects {
 
-class Dot/* extends net.juligame.epicspells.classes.effects.interfaces.movable implements net.juligame.epicspells.classes.effects.interfaces.hittable*/ {
+class Dot/* extends net.juligame.epicspells.classes.effects.interfaces.movable*/ {
 
 	MoveTo( finalLoc:org.bukkit.Location, blocksPerSecond:float ):void;
 	MoveTo( finalLoc:org.bukkit.Location, inTicks:float, interpolation:net.juligame.epicspells.classes.enums.Interpolations ):void;
 	Spawn( spawnLocation:org.bukkit.Location ):void;
 	equals( arg0:any /*java.lang.Object*/ ):boolean;
-	getCurrentLocation(  ):org.bukkit.Location;
-	getHitbox(  ):net.juligame.epicspells.classes.util.Hitbox;
-	onEndMove( hitground:boolean ):void;
+	onJourneyEnd( hitground:boolean ):void;
 	setOnCasterHit( onCasterHit:Func<org.bukkit.entity.LivingEntity, boolean|null> ):void;
 	setOnEntityHit( onEntityHit:Func<org.bukkit.entity.LivingEntity, boolean|null> ):void;
 	setOnGroundHit( onGroundHit:org.bukkit.util.Consumer<org.bukkit.Location> ):void;
-	startHitDetection( onHitEntity:Func<java.util.List<org.bukkit.entity.LivingEntity>, boolean|null> ):void;
 	stopMove(  ):void;
 	toString(  ):string;
 
@@ -602,9 +599,8 @@ class MMobEntity/* extends net.juligame.epicspells.classes.effects.interfaces.mo
 
 	MoveTo( finalLoc:org.bukkit.Location, blocksPerSecond:float ):void;
 	MoveTo( finalLoc:org.bukkit.Location, inTicks:float, interpolation:net.juligame.epicspells.classes.enums.Interpolations ):void;
-	despawn(  ):void;
 	equals( arg0:any /*java.lang.Object*/ ):boolean;
-	onEndMove( hitGround:boolean ):void;
+	onJourneyEnd( hitGround:boolean ):void;
 	setOnCasterHit( onCasterHit:Func<org.bukkit.entity.LivingEntity, boolean|null> ):void;
 	setOnEntityHit( onEntityHit:Func<org.bukkit.entity.LivingEntity, boolean|null> ):void;
 	setOnGroundHit( onGroundHit:org.bukkit.util.Consumer<org.bukkit.Location> ):void;
@@ -623,13 +619,10 @@ class MultiDot/* extends Dot*/ {
 	Spawn( location:org.bukkit.Location, quantity:int ):void;
 	Spawn( spawnLocation:org.bukkit.Location ):void;
 	equals( arg0:any /*java.lang.Object*/ ):boolean;
-	getCurrentLocation(  ):org.bukkit.Location;
-	getHitbox(  ):net.juligame.epicspells.classes.util.Hitbox;
-	onEndMove( hitground:boolean ):void;
+	onJourneyEnd( hitground:boolean ):void;
 	setOnCasterHit( onCasterHit:Func<org.bukkit.entity.LivingEntity, boolean|null> ):void;
 	setOnEntityHit( onEntityHit:Func<org.bukkit.entity.LivingEntity, boolean|null> ):void;
 	setOnGroundHit( onGroundHit:org.bukkit.util.Consumer<org.bukkit.Location> ):void;
-	startHitDetection( onHitEntity:Func<java.util.List<org.bukkit.entity.LivingEntity>, boolean|null> ):void;
 	stopMove(  ):void;
 	toString(  ):string;
 
@@ -667,22 +660,11 @@ class movable/* extends java.lang.Object*/ {
 	MoveTo( finalLoc:org.bukkit.Location, blocksPerSecond:float ):void;
 	MoveTo( finalLoc:org.bukkit.Location, inTicks:float, interpolation:net.juligame.epicspells.classes.enums.Interpolations ):void;
 	equals( arg0:any /*java.lang.Object*/ ):boolean;
-	onEndMove( hitGround:boolean ):void;
+	onJourneyEnd( collided:boolean ):void;
 	stopMove(  ):void;
 	toString(  ):string;
 
 } // end movable
-
-} // end namespace net.juligame.epicspells.classes.effects.interfaces
-declare namespace net.juligame.epicspells.classes.effects.interfaces {
-
-interface hittable {
-
-	getCurrentLocation(  ):org.bukkit.Location;
-	getHitbox(  ):net.juligame.epicspells.classes.util.Hitbox;
-	startHitDetection( onHitEntity:Func<java.util.List<org.bukkit.entity.LivingEntity>, boolean|null> ):void;
-
-} // end hittable
 
 } // end namespace net.juligame.epicspells.classes.effects.interfaces
 declare namespace net.juligame.epicspells.classes.enums {
@@ -705,8 +687,11 @@ declare namespace net.juligame.epicspells.classes.enums {
 	describeConstable(  ):java.util.Optional<any /*java.lang.Enum$EnumDesc*/>;
 	equals( arg0:any /*java.lang.Object*/ ):boolean;
 	getDeclaringClass<E>(  ):java.lang.Class<E>;
+	icon(  ):string;
 	name(  ):string;
+	nombre(  ):string;
 	ordinal(  ):int;
+	pretty( text:string ):string;
 	toString(  ):string;
 
 } // end Element
@@ -801,8 +786,11 @@ declare namespace net.juligame.epicspells.classes.util {
 
 class Hitbox/* extends java.lang.Object*/ {
 
+	StopTask(  ):void;
 	equals( arg0:any /*java.lang.Object*/ ):boolean;
-	getHitEntities( location:org.bukkit.Location ):java.util.List<org.bukkit.entity.LivingEntity>;
+	setEntity( me:org.bukkit.entity.Entity ):void;
+	setTeam( team:string ):void;
+	startHitDetection(  ):void;
 	toString(  ):string;
 
 } // end Hitbox

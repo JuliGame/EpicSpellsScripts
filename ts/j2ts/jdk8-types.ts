@@ -390,7 +390,7 @@ export const Consumer: ConsumerStatic = Packages.org.bukkit.util.Consumer;
 interface DotStatic {
 
 	readonly class:any;
-	new( particleEffect:org.bukkit.Particle, renderTicks:int, hitbox:net.juligame.epicspells.classes.util.Hitbox, caster:org.bukkit.entity.Player ):net.juligame.epicspells.classes.effects.Dot;
+	new( particleEffect:org.bukkit.Particle, hitbox:net.juligame.epicspells.classes.util.Hitbox, caster:org.bukkit.entity.Player ):net.juligame.epicspells.classes.effects.Dot;
 }
 
 export const Dot: DotStatic = Packages.net.juligame.epicspells.classes.effects.Dot;
@@ -2712,7 +2712,7 @@ export const Material: MaterialStatic = Packages.org.bukkit.Material;
 interface MultiDotStatic {
 
 	readonly class:any;
-	new( particleEffect:org.bukkit.Particle, lifeSpan:int, hitBox:net.juligame.epicspells.classes.util.Hitbox, caster:org.bukkit.entity.Player, spreadX:int, spreadY:int, spreadZ:int ):net.juligame.epicspells.classes.effects.MultiDot;
+	new( particleEffect:org.bukkit.Particle, hitBox:net.juligame.epicspells.classes.util.Hitbox, caster:org.bukkit.entity.Player, spreadX:int, spreadY:int, spreadZ:int ):net.juligame.epicspells.classes.effects.MultiDot;
 }
 
 export const MultiDot: MultiDotStatic = Packages.net.juligame.epicspells.classes.effects.MultiDot;
@@ -4482,14 +4482,6 @@ interface WorldStatic {
 }
 
 export const World: WorldStatic = Packages.org.bukkit.World;
-
-
-interface hittableStatic {
-
-	readonly class:any;
-}
-
-export const hittable: hittableStatic = Packages.net.juligame.epicspells.classes.effects.interfaces.hittable;
 
 
 interface movableStatic {

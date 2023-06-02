@@ -23,7 +23,7 @@ function getJSSpell() {
 		// el 1 ese es un int, es la cantidad de ticks entre render y render, 1 = muy rapido. 20 = cada 1 segundo.
 		// la hitbox que mide r para cada lado.
 		// por ultimo un player en este caso el caster (asi para detectar que no nos pege el spell a nosotros mismos xD)
-		const dot = new Dot(Particle.FLAME, 1, new Hitbox(r, r, r), event.getCaster());
+		const dot = new Dot(Particle.FLAME,  new Hitbox(r, r, r), event.getCaster());
 		
 		// dot tiene muchas funciones. entre ellas
 		// � onEntityHit     (cuando le pege a una entidad)
